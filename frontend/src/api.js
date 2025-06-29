@@ -11,3 +11,13 @@ export const verifyCertificate = async (certNumber) => {
         return null;
     }
 };
+
+export const getCertificates = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/certificates`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching certificate list", error);
+        return [];
+    }
+};
